@@ -1,1 +1,260 @@
-
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Teste de URLs - TSE e TREs</title>
+<style>
+:root{--bg:#07111f;--card:#101c2d;--line:#26364c;--text:#eef5ff;--muted:#9fb0c7;--blue:#2f81f7;--green:#25c281;--red:#ff5d73;--amber:#f4b942}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(145deg,#07111f,#0b1730);color:var(--text);font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+main{max-width:1050px;margin:auto;padding:20px} header{display:flex;gap:18px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;margin-bottom:16px}
+h1{font-size:clamp(23px,5vw,36px);margin:0 0 6px} p{color:var(--muted);margin:0;line-height:1.45} .actions{display:flex;gap:9px;flex-wrap:wrap}
+button{border:0;border-radius:11px;padding:12px 15px;font-weight:700;color:white;background:var(--blue);cursor:pointer} button.secondary{background:#24344c} button:disabled{opacity:.55}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0} .metric{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px} .metric b{display:block;font-size:23px} .metric span{color:var(--muted);font-size:12px}
+.progress{height:7px;background:#1c2a40;border-radius:10px;overflow:hidden;margin:12px 0 16px} .progress div{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));transition:width .2s}
+.table-wrap{overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:15px} table{width:100%;border-collapse:collapse;min-width:680px} th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left} th{position:sticky;top:0;background:#132238;color:#b9c7d9;font-size:12px;text-transform:uppercase} tr:last-child td{border-bottom:0} a{color:#84b8ff;text-decoration:none} .idx{color:var(--muted);width:45px}
+.pill{display:inline-block;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800} .waiting{background:#24344c;color:#c0cee0} .testing{background:#4a3b19;color:#ffd778} .ok{background:#113f34;color:#6ff0bd} .fail{background:#4b1e29;color:#ff9aaa}
+.note{margin-top:14px;padding:13px;border:1px solid #44516a;border-radius:12px;background:#111d30;color:#c6d2e2;font-size:13px} @media(max-width:650px){.summary{grid-template-columns:repeat(2,1fr)}main{padding:14px}}
+</style></head>
+<body><main>
+<header><div><h1>Teste de URLs</h1><p>Validação de conectividade TSE e TREs pela rede ativa do aparelho.</p></div><div class="actions"><button id="run">Executar testes</button><button id="share" class="secondary">Compartilhar resumo</button><button id="reset" class="secondary">Limpar</button></div></header>
+<section class="summary"><div class="metric"><b id="total">57</b><span>Total</span></div><div class="metric"><b id="success">0</b><span>Acessíveis</span></div><div class="metric"><b id="failed">0</b><span>Falhas/timeout</span></div><div class="metric"><b id="done">0</b><span>Testados</span></div></section>
+<div class="progress"><div id="bar"></div></div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>URL</th><th>Resultado</th><th>Tempo</th><th>Verificado</th></tr></thead><tbody><tr data-host="www.tse.jus.br">
+<td class="idx">1</td><td><a href="https://www.tse.jus.br" target="_blank" rel="noopener">www.tse.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tse.jus.br">
+<td class="idx">2</td><td><a href="https://tse.jus.br" target="_blank" rel="noopener">tse.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.justicaeleitoral.jus.br">
+<td class="idx">3</td><td><a href="https://www.justicaeleitoral.jus.br" target="_blank" rel="noopener">www.justicaeleitoral.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="justicaeleitoral.jus.br">
+<td class="idx">4</td><td><a href="https://justicaeleitoral.jus.br" target="_blank" rel="noopener">justicaeleitoral.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-ac.jus.br">
+<td class="idx">5</td><td><a href="https://www.tre-ac.jus.br" target="_blank" rel="noopener">www.tre-ac.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-ac.jus.br">
+<td class="idx">6</td><td><a href="https://tre-ac.jus.br" target="_blank" rel="noopener">tre-ac.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-al.jus.br">
+<td class="idx">7</td><td><a href="https://www.tre-al.jus.br" target="_blank" rel="noopener">www.tre-al.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-al.jus.br">
+<td class="idx">8</td><td><a href="https://tre-al.jus.br" target="_blank" rel="noopener">tre-al.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-am.jus.br">
+<td class="idx">9</td><td><a href="https://www.tre-am.jus.br" target="_blank" rel="noopener">www.tre-am.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-am.jus.br">
+<td class="idx">10</td><td><a href="https://tre-am.jus.br" target="_blank" rel="noopener">tre-am.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-ap.jus.br">
+<td class="idx">11</td><td><a href="https://www.tre-ap.jus.br" target="_blank" rel="noopener">www.tre-ap.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-ap.jus.br">
+<td class="idx">12</td><td><a href="https://tre-ap.jus.br" target="_blank" rel="noopener">tre-ap.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-ba.jus.br">
+<td class="idx">13</td><td><a href="https://www.tre-ba.jus.br" target="_blank" rel="noopener">www.tre-ba.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-ba.jus.br">
+<td class="idx">14</td><td><a href="https://tre-ba.jus.br" target="_blank" rel="noopener">tre-ba.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-ce.jus.br">
+<td class="idx">15</td><td><a href="https://www.tre-ce.jus.br" target="_blank" rel="noopener">www.tre-ce.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-ce.jus.br">
+<td class="idx">16</td><td><a href="https://tre-ce.jus.br" target="_blank" rel="noopener">tre-ce.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-df.jus.br">
+<td class="idx">17</td><td><a href="https://www.tre-df.jus.br" target="_blank" rel="noopener">www.tre-df.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-df.jus.br">
+<td class="idx">18</td><td><a href="https://tre-df.jus.br" target="_blank" rel="noopener">tre-df.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-es.jus.br">
+<td class="idx">19</td><td><a href="https://www.tre-es.jus.br" target="_blank" rel="noopener">www.tre-es.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-es.jus.br">
+<td class="idx">20</td><td><a href="https://tre-es.jus.br" target="_blank" rel="noopener">tre-es.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-go.jus.br">
+<td class="idx">21</td><td><a href="https://www.tre-go.jus.br" target="_blank" rel="noopener">www.tre-go.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-go.jus.br">
+<td class="idx">22</td><td><a href="https://tre-go.jus.br" target="_blank" rel="noopener">tre-go.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-ma.jus.br">
+<td class="idx">23</td><td><a href="https://www.tre-ma.jus.br" target="_blank" rel="noopener">www.tre-ma.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-ma.jus.br">
+<td class="idx">24</td><td><a href="https://tre-ma.jus.br" target="_blank" rel="noopener">tre-ma.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-mg.jus.br">
+<td class="idx">25</td><td><a href="https://www.tre-mg.jus.br" target="_blank" rel="noopener">www.tre-mg.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-mg.jus.br">
+<td class="idx">26</td><td><a href="https://tre-mg.jus.br" target="_blank" rel="noopener">tre-mg.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-ms.jus.br">
+<td class="idx">27</td><td><a href="https://www.tre-ms.jus.br" target="_blank" rel="noopener">www.tre-ms.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-ms.jus.br">
+<td class="idx">28</td><td><a href="https://tre-ms.jus.br" target="_blank" rel="noopener">tre-ms.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-mt.jus.br">
+<td class="idx">29</td><td><a href="https://www.tre-mt.jus.br" target="_blank" rel="noopener">www.tre-mt.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-mt.jus.br">
+<td class="idx">30</td><td><a href="https://tre-mt.jus.br" target="_blank" rel="noopener">tre-mt.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-pa.jus.br">
+<td class="idx">31</td><td><a href="https://www.tre-pa.jus.br" target="_blank" rel="noopener">www.tre-pa.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-pa.jus.br">
+<td class="idx">32</td><td><a href="https://tre-pa.jus.br" target="_blank" rel="noopener">tre-pa.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-pb.jus.br">
+<td class="idx">33</td><td><a href="https://www.tre-pb.jus.br" target="_blank" rel="noopener">www.tre-pb.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-pb.jus.br">
+<td class="idx">34</td><td><a href="https://tre-pb.jus.br" target="_blank" rel="noopener">tre-pb.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-pe.jus.br">
+<td class="idx">35</td><td><a href="https://www.tre-pe.jus.br" target="_blank" rel="noopener">www.tre-pe.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-pe.jus.br">
+<td class="idx">36</td><td><a href="https://tre-pe.jus.br" target="_blank" rel="noopener">tre-pe.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-pi.jus.br">
+<td class="idx">37</td><td><a href="https://www.tre-pi.jus.br" target="_blank" rel="noopener">www.tre-pi.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-pi.jus.br">
+<td class="idx">38</td><td><a href="https://tre-pi.jus.br" target="_blank" rel="noopener">tre-pi.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-pr.jus.br">
+<td class="idx">39</td><td><a href="https://www.tre-pr.jus.br" target="_blank" rel="noopener">www.tre-pr.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-pr.jus.br">
+<td class="idx">40</td><td><a href="https://tre-pr.jus.br" target="_blank" rel="noopener">tre-pr.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-rj.jus.br">
+<td class="idx">41</td><td><a href="https://www.tre-rj.jus.br" target="_blank" rel="noopener">www.tre-rj.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-rj.jus.br">
+<td class="idx">42</td><td><a href="https://tre-rj.jus.br" target="_blank" rel="noopener">tre-rj.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-rn.jus.br">
+<td class="idx">43</td><td><a href="https://www.tre-rn.jus.br" target="_blank" rel="noopener">www.tre-rn.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-rn.jus.br">
+<td class="idx">44</td><td><a href="https://tre-rn.jus.br" target="_blank" rel="noopener">tre-rn.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-ro.jus.br">
+<td class="idx">45</td><td><a href="https://www.tre-ro.jus.br" target="_blank" rel="noopener">www.tre-ro.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-ro.jus.br">
+<td class="idx">46</td><td><a href="https://tre-ro.jus.br" target="_blank" rel="noopener">tre-ro.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-rr.jus.br">
+<td class="idx">47</td><td><a href="https://www.tre-rr.jus.br" target="_blank" rel="noopener">www.tre-rr.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-rr.jus.br">
+<td class="idx">48</td><td><a href="https://tre-rr.jus.br" target="_blank" rel="noopener">tre-rr.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-rs.jus.br">
+<td class="idx">49</td><td><a href="https://www.tre-rs.jus.br" target="_blank" rel="noopener">www.tre-rs.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-sc.jus.br">
+<td class="idx">50</td><td><a href="https://www.tre-sc.jus.br" target="_blank" rel="noopener">www.tre-sc.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-sc.jus.br">
+<td class="idx">51</td><td><a href="https://tre-sc.jus.br" target="_blank" rel="noopener">tre-sc.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-se.jus.br">
+<td class="idx">52</td><td><a href="https://www.tre-se.jus.br" target="_blank" rel="noopener">www.tre-se.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-se.jus.br">
+<td class="idx">53</td><td><a href="https://tre-se.jus.br" target="_blank" rel="noopener">tre-se.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-sp.jus.br">
+<td class="idx">54</td><td><a href="https://www.tre-sp.jus.br" target="_blank" rel="noopener">www.tre-sp.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-sp.jus.br">
+<td class="idx">55</td><td><a href="https://tre-sp.jus.br" target="_blank" rel="noopener">tre-sp.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="www.tre-to.jus.br">
+<td class="idx">56</td><td><a href="https://www.tre-to.jus.br" target="_blank" rel="noopener">www.tre-to.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr>
+<tr data-host="tre-to.jus.br">
+<td class="idx">57</td><td><a href="https://tre-to.jus.br" target="_blank" rel="noopener">tre-to.jus.br</a></td>
+<td class="status"><span class="pill waiting">Aguardando</span></td><td class="latency">-</td><td class="checked">-</td>
+</tr></tbody></table></div>
+<div class="note"><b>Importante:</b> o teste usa uma solicitação HTTPS sem leitura do conteúdo. Por restrições de segurança do navegador (CORS), ele confirma conectividade até o destino, mas não informa o código HTTP. Timeout configurado: 12 segundos. Toque na URL para validar a abertura visual no Safari.</div>
+</main><script>
+const rows=[...document.querySelectorAll('tbody tr')], run=document.querySelector('#run');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function update(s,f,d){success.textContent=s;failed.textContent=f;done.textContent=d;bar.style.width=(d/rows.length*100)+'%'}
+async function probe(row){const host=row.dataset.host, st=row.querySelector('.status'), lat=row.querySelector('.latency'), chk=row.querySelector('.checked');st.innerHTML='<span class="pill testing">Testando</span>';const started=performance.now(), ctrl=new AbortController(), timer=setTimeout(()=>ctrl.abort(),12000);try{await fetch('https://'+host+'/?network_test='+Date.now(),{mode:'no-cors',cache:'no-store',signal:ctrl.signal});clearTimeout(timer);const ms=Math.round(performance.now()-started);st.innerHTML='<span class="pill ok">Acessível</span>';lat.textContent=ms+' ms';chk.textContent=new Date().toLocaleTimeString('pt-BR');return true}catch(e){clearTimeout(timer);st.innerHTML='<span class="pill fail">Falha/timeout</span>';lat.textContent='-';chk.textContent=new Date().toLocaleTimeString('pt-BR');return false}}
+run.onclick=async()=>{run.disabled=true;let s=0,f=0,d=0;update(0,0,0);for(let i=0;i<rows.length;i+=4){const batch=rows.slice(i,i+4);const results=await Promise.all(batch.map(probe));results.forEach(ok=>ok?s++:f++);d+=batch.length;update(s,f,d);await sleep(120)}run.disabled=false};
+reset.onclick=()=>{rows.forEach(r=>{r.querySelector('.status').innerHTML='<span class="pill waiting">Aguardando</span>';r.querySelector('.latency').textContent='-';r.querySelector('.checked').textContent='-'});update(0,0,0)};
+share.onclick=async()=>{const text=`Teste de URLs - ${new Date().toLocaleString('pt-BR')}
+Total: ${rows.length} | Acessíveis: ${success.textContent} | Falhas: ${failed.textContent}`;if(navigator.share){try{await navigator.share({title:'Teste de URLs',text})}catch(e){}}else{await navigator.clipboard.writeText(text);alert('Resumo copiado.')}};
+</script></body></html>
