@@ -1,20 +1,774 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Teste HTTPS - Lista Atualizada</title><style>
-:root{--bg:#07111f;--card:#101c2d;--line:#26364c;--text:#eef5ff;--muted:#9fb0c7;--blue:#287cff;--green:#24c486;--red:#ff6376}*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#07111f,#0b1730);color:var(--text);font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1100px;margin:auto;padding:18px}h1{margin:0 0 5px;font-size:clamp(23px,5vw,35px)}p{margin:0;color:var(--muted)}header{display:flex;justify-content:space-between;gap:15px;align-items:end;flex-wrap:wrap}.actions{display:flex;gap:8px;flex-wrap:wrap}button{border:0;border-radius:11px;padding:12px 14px;background:var(--blue);color:#fff;font-weight:750}button.alt{background:#263750}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:15px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px}.card strong{font-size:22px;display:block}.card span{font-size:12px;color:var(--muted)}.progress{height:7px;background:#1d2a3e;border-radius:8px;margin-bottom:14px;overflow:hidden}.progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--blue),var(--green))}.wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}table{border-collapse:collapse;width:100%;min-width:760px}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line)}th{background:#132238;position:sticky;top:0;font-size:12px;color:#b8c9df}a{color:#85baff;text-decoration:none}b{display:inline-block;border-radius:999px;padding:5px 8px;font-size:12px}.wait{background:#263750}.testing{background:#584419;color:#ffe08a}.ok{background:#10463a;color:#75efc0}.bad{background:#521f2a;color:#ffa1ad}.note{margin-top:13px;padding:12px;border-radius:11px;border:1px solid #41516a;color:#c9d5e5;background:#101c2d}@media(max-width:640px){.cards{grid-template-columns:1fr 1fr}main{padding:12px}}</style></head><body><main>
-<header><div><h1>Teste HTTPS de URLs</h1><p>Lista atualizada, pela conexão ativa do aparelho</p></div><div class="actions"><button id="run">Executar testes</button><button id="share" class="alt">Compartilhar resultado</button><button id="clear" class="alt">Limpar</button></div></header>
-<div class="cards"><div class="card"><strong>85</strong><span>Total</span></div><div class="card"><strong id="ok">0</strong><span>HTTPS respondeu</span></div><div class="card"><strong id="fail">0</strong><span>Falha/timeout</span></div><div class="card"><strong id="done">0</strong><span>Testados</span></div></div><div class="progress"><i id="bar"></i></div>
-<div class="wrap"><table><thead><tr><th>#</th><th>URL HTTPS</th><th>Resposta HTTPS</th><th>Detalhe</th><th>Tempo</th><th>Horário</th></tr></thead><tbody><tr data-h="sitequenaoexiste.com.br"><td>1</td><td><a href="https://sitequenaoexiste.com.br" target="_blank">https://sitequenaoexiste.com.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="dadosabertos.tse.jus.br"><td>2</td><td><a href="https://dadosabertos.tse.jus.br" target="_blank">https://dadosabertos.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="divulgacandcontas.tse.jus.br"><td>3</td><td><a href="https://divulgacandcontas.tse.jus.br" target="_blank">https://divulgacandcontas.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="30308800.tse.jus.br"><td>4</td><td><a href="https://30308800.tse.jus.br" target="_blank">https://30308800.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="pardal-web.tse.jus.br"><td>5</td><td><a href="https://pardal-web.tse.jus.br" target="_blank">https://pardal-web.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="educacao.tse.jus.br"><td>6</td><td><a href="https://educacao.tse.jus.br" target="_blank">https://educacao.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="cdn.tse.jus.br"><td>7</td><td><a href="https://cdn.tse.jus.br" target="_blank">https://cdn.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="form.omni.serpro.gov.br"><td>8</td><td><a href="https://form.omni.serpro.gov.br" target="_blank">https://form.omni.serpro.gov.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="resultados.tse.jus.br"><td>9</td><td><a href="https://resultados.tse.jus.br" target="_blank">https://resultados.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="sso.acesso.gov.br"><td>10</td><td><a href="https://sso.acesso.gov.br" target="_blank">https://sso.acesso.gov.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="treinamento-mesario.tse.jus.br"><td>11</td><td><a href="https://treinamento-mesario.tse.jus.br" target="_blank">https://treinamento-mesario.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="consultaunificadapje.tse.jus.br"><td>12</td><td><a href="https://consultaunificadapje.tse.jus.br" target="_blank">https://consultaunificadapje.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="justifica.tse.jus.br"><td>13</td><td><a href="https://justifica.tse.jus.br" target="_blank">https://justifica.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="cad-app-processo-eleitoral.tse.jus.br"><td>14</td><td><a href="https://cad-app-processo-eleitoral.tse.jus.br" target="_blank">https://cad-app-processo-eleitoral.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="cad-app-enderecamento.tse.jus.br"><td>15</td><td><a href="https://cad-app-enderecamento.tse.jus.br" target="_blank">https://cad-app-enderecamento.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="qrcodenobu.tse.jus.br"><td>16</td><td><a href="https://qrcodenobu.tse.jus.br" target="_blank">https://qrcodenobu.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="checamos.afp.com"><td>17</td><td><a href="https://checamos.afp.com" target="_blank">https://checamos.afp.com</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.agencialupa.org"><td>18</td><td><a href="https://www.agencialupa.org" target="_blank">https://www.agencialupa.org</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.aosfatos.org"><td>19</td><td><a href="https://www.aosfatos.org" target="_blank">https://www.aosfatos.org</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="projetocomprova.com.br"><td>20</td><td><a href="https://projetocomprova.com.br" target="_blank">https://projetocomprova.com.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.e-farsas.com"><td>21</td><td><a href="https://www.e-farsas.com" target="_blank">https://www.e-farsas.com</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.estadao.com.br/estadao-verifica"><td>22</td><td><a href="https://www.estadao.com.br/estadao-verifica" target="_blank">https://www.estadao.com.br/estadao-verifica</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="g1.globo.com/fato-ou-fake"><td>23</td><td><a href="https://g1.globo.com/fato-ou-fake" target="_blank">https://g1.globo.com/fato-ou-fake</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="noticias.uol.com.br/comprova"><td>24</td><td><a href="https://noticias.uol.com.br/comprova" target="_blank">https://noticias.uol.com.br/comprova</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.boatos.org"><td>25</td><td><a href="https://www.boatos.org" target="_blank">https://www.boatos.org</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="noticias.uol.com.br/confere"><td>26</td><td><a href="https://noticias.uol.com.br/confere" target="_blank">https://noticias.uol.com.br/confere</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.justicaeleitoral.jus.br/fato-ou-boato"><td>27</td><td><a href="https://www.justicaeleitoral.jus.br/fato-ou-boato" target="_blank">https://www.justicaeleitoral.jus.br/fato-ou-boato</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tn3.tse.jus.br"><td>28</td><td><a href="https://tn3.tse.jus.br" target="_blank">https://tn3.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tse.jus.br"><td>29</td><td><a href="https://www.tse.jus.br" target="_blank">https://www.tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tse.jus.br"><td>30</td><td><a href="https://tse.jus.br" target="_blank">https://tse.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.justicaeleitoral.jus.br"><td>31</td><td><a href="https://www.justicaeleitoral.jus.br" target="_blank">https://www.justicaeleitoral.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="justicaeleitoral.jus.br"><td>32</td><td><a href="https://justicaeleitoral.jus.br" target="_blank">https://justicaeleitoral.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-ac.jus.br"><td>33</td><td><a href="https://www.tre-ac.jus.br" target="_blank">https://www.tre-ac.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-ac.jus.br"><td>34</td><td><a href="https://tre-ac.jus.br" target="_blank">https://tre-ac.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-al.jus.br"><td>35</td><td><a href="https://www.tre-al.jus.br" target="_blank">https://www.tre-al.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-al.jus.br"><td>36</td><td><a href="https://tre-al.jus.br" target="_blank">https://tre-al.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-am.jus.br"><td>37</td><td><a href="https://www.tre-am.jus.br" target="_blank">https://www.tre-am.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-am.jus.br"><td>38</td><td><a href="https://tre-am.jus.br" target="_blank">https://tre-am.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-ap.jus.br"><td>39</td><td><a href="https://www.tre-ap.jus.br" target="_blank">https://www.tre-ap.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-ap.jus.br"><td>40</td><td><a href="https://tre-ap.jus.br" target="_blank">https://tre-ap.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-ba.jus.br"><td>41</td><td><a href="https://www.tre-ba.jus.br" target="_blank">https://www.tre-ba.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-ba.jus.br"><td>42</td><td><a href="https://tre-ba.jus.br" target="_blank">https://tre-ba.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-ce.jus.br"><td>43</td><td><a href="https://www.tre-ce.jus.br" target="_blank">https://www.tre-ce.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-ce.jus.br"><td>44</td><td><a href="https://tre-ce.jus.br" target="_blank">https://tre-ce.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-df.jus.br"><td>45</td><td><a href="https://www.tre-df.jus.br" target="_blank">https://www.tre-df.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-df.jus.br"><td>46</td><td><a href="https://tre-df.jus.br" target="_blank">https://tre-df.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-es.jus.br"><td>47</td><td><a href="https://www.tre-es.jus.br" target="_blank">https://www.tre-es.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-es.jus.br"><td>48</td><td><a href="https://tre-es.jus.br" target="_blank">https://tre-es.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-go.jus.br"><td>49</td><td><a href="https://www.tre-go.jus.br" target="_blank">https://www.tre-go.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-go.jus.br"><td>50</td><td><a href="https://tre-go.jus.br" target="_blank">https://tre-go.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-ma.jus.br"><td>51</td><td><a href="https://www.tre-ma.jus.br" target="_blank">https://www.tre-ma.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-ma.jus.br"><td>52</td><td><a href="https://tre-ma.jus.br" target="_blank">https://tre-ma.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-mg.jus.br"><td>53</td><td><a href="https://www.tre-mg.jus.br" target="_blank">https://www.tre-mg.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-mg.jus.br"><td>54</td><td><a href="https://tre-mg.jus.br" target="_blank">https://tre-mg.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-ms.jus.br"><td>55</td><td><a href="https://www.tre-ms.jus.br" target="_blank">https://www.tre-ms.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-ms.jus.br"><td>56</td><td><a href="https://tre-ms.jus.br" target="_blank">https://tre-ms.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-mt.jus.br"><td>57</td><td><a href="https://www.tre-mt.jus.br" target="_blank">https://www.tre-mt.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-mt.jus.br"><td>58</td><td><a href="https://tre-mt.jus.br" target="_blank">https://tre-mt.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-pa.jus.br"><td>59</td><td><a href="https://www.tre-pa.jus.br" target="_blank">https://www.tre-pa.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-pa.jus.br"><td>60</td><td><a href="https://tre-pa.jus.br" target="_blank">https://tre-pa.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-pb.jus.br"><td>61</td><td><a href="https://www.tre-pb.jus.br" target="_blank">https://www.tre-pb.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-pb.jus.br"><td>62</td><td><a href="https://tre-pb.jus.br" target="_blank">https://tre-pb.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-pe.jus.br"><td>63</td><td><a href="https://www.tre-pe.jus.br" target="_blank">https://www.tre-pe.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-pe.jus.br"><td>64</td><td><a href="https://tre-pe.jus.br" target="_blank">https://tre-pe.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-pi.jus.br"><td>65</td><td><a href="https://www.tre-pi.jus.br" target="_blank">https://www.tre-pi.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-pi.jus.br"><td>66</td><td><a href="https://tre-pi.jus.br" target="_blank">https://tre-pi.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-pr.jus.br"><td>67</td><td><a href="https://www.tre-pr.jus.br" target="_blank">https://www.tre-pr.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-pr.jus.br"><td>68</td><td><a href="https://tre-pr.jus.br" target="_blank">https://tre-pr.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-rj.jus.br"><td>69</td><td><a href="https://www.tre-rj.jus.br" target="_blank">https://www.tre-rj.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-rj.jus.br"><td>70</td><td><a href="https://tre-rj.jus.br" target="_blank">https://tre-rj.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-rn.jus.br"><td>71</td><td><a href="https://www.tre-rn.jus.br" target="_blank">https://www.tre-rn.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-rn.jus.br"><td>72</td><td><a href="https://tre-rn.jus.br" target="_blank">https://tre-rn.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-ro.jus.br"><td>73</td><td><a href="https://www.tre-ro.jus.br" target="_blank">https://www.tre-ro.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-ro.jus.br"><td>74</td><td><a href="https://tre-ro.jus.br" target="_blank">https://tre-ro.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-rr.jus.br"><td>75</td><td><a href="https://www.tre-rr.jus.br" target="_blank">https://www.tre-rr.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-rr.jus.br"><td>76</td><td><a href="https://tre-rr.jus.br" target="_blank">https://tre-rr.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-rs.jus.br"><td>77</td><td><a href="https://www.tre-rs.jus.br" target="_blank">https://www.tre-rs.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-sc.jus.br"><td>78</td><td><a href="https://www.tre-sc.jus.br" target="_blank">https://www.tre-sc.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-sc.jus.br"><td>79</td><td><a href="https://tre-sc.jus.br" target="_blank">https://tre-sc.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-se.jus.br"><td>80</td><td><a href="https://www.tre-se.jus.br" target="_blank">https://www.tre-se.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-se.jus.br"><td>81</td><td><a href="https://tre-se.jus.br" target="_blank">https://tre-se.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-sp.jus.br"><td>82</td><td><a href="https://www.tre-sp.jus.br" target="_blank">https://www.tre-sp.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-sp.jus.br"><td>83</td><td><a href="https://tre-sp.jus.br" target="_blank">https://tre-sp.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="www.tre-to.jus.br"><td>84</td><td><a href="https://www.tre-to.jus.br" target="_blank">https://www.tre-to.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr><tr data-h="tre-to.jus.br"><td>85</td><td><a href="https://tre-to.jus.br" target="_blank">https://tre-to.jus.br</a></td><td class="s"><b class="wait">Aguardando</b></td><td class="e">-</td><td class="t">-</td><td class="d">-</td></tr></tbody></table></div>
-<div class="note"><b>Observação</b><br>Timeout de 30 segundos. Este HTML diferencia timeout de falha genérica. Por regras CORS, o navegador não revela o código HTTP 200/301/403 nem permite separar com certeza DNS, TLS e bloqueio de rede. O compartilhamento envia ou copia o relatório completo em formato separado por ponto e vírgula.</div>
-<script>
-const rs=[...document.querySelectorAll('tbody tr')],run=document.querySelector('#run'),ok=document.querySelector('#ok'),fail=document.querySelector('#fail'),done=document.querySelector('#done'),bar=document.querySelector('#bar');
-function upd(a,b,c){ok.textContent=a;fail.textContent=b;done.textContent=c;bar.style.width=(c/rs.length*100)+'%'}
-async function probe(r){let s=r.querySelector('.s'),e=r.querySelector('.e'),t=r.querySelector('.t'),d=r.querySelector('.d'),start=performance.now(),c=new AbortController(),timer=setTimeout(()=>c.abort(),30000);s.innerHTML='<b class="testing">Testando</b>';e.textContent='Aguardando resposta';try{await fetch('https://'+r.dataset.h+'/?network_test='+Date.now(),{mode:'no-cors',cache:'no-store',signal:c.signal});clearTimeout(timer);t.textContent=Math.round(performance.now()-start)+' ms';d.textContent=new Date().toLocaleTimeString('pt-BR');s.innerHTML='<b class="ok">HTTPS respondeu</b>';e.textContent='Conexão HTTPS concluída';return 1}catch(err){clearTimeout(timer);t.textContent=Math.round(performance.now()-start)+' ms';d.textContent=new Date().toLocaleTimeString('pt-BR');s.innerHTML='<b class="bad">Falha</b>';if(err && err.name==='AbortError'){e.textContent='Timeout após 30 s'}else if(!navigator.onLine){e.textContent='Dispositivo sem conexão de rede'}else{e.textContent='Erro de rede, DNS, TLS ou bloqueio do navegador'}return 0}}
-run.onclick=async()=>{run.disabled=true;let a=0,b=0,c=0;upd(0,0,0);for(let i=0;i<rs.length;i+=4){let out=await Promise.all(rs.slice(i,i+4).map(probe));out.forEach(x=>x?a++:b++);c+=out.length;upd(a,b,c)}run.disabled=false};
-function report(){return `Teste HTTPS - ${new Date().toLocaleString('pt-BR')}
-Total: ${rs.length}; HTTPS respondeu: ${ok.textContent}; Falha/timeout: ${fail.textContent}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Teste HTTPS - Lista Atualizada</title>
+  <style>
+    :root { --bg:#07111f; --card:#101c2d; --line:#26364c; --text:#eef5ff; --muted:#9fb0c7; --blue:#287cff; --green:#24c486; --red:#ff6376; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(145deg,#07111f,#0b1730); color:var(--text); font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { max-width:1180px; margin:auto; padding:18px; }
+    header { display:flex; justify-content:space-between; gap:16px; align-items:flex-end; flex-wrap:wrap; }
+    h1 { margin:0 0 5px; font-size:clamp(23px,5vw,35px); }
+    p { margin:0; color:var(--muted); }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; }
+    button { border:0; border-radius:11px; padding:12px 14px; background:var(--blue); color:white; font-weight:700; cursor:pointer; }
+    button.alt { background:#263750; }
+    button:disabled { opacity:.55; }
+    .cards { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; margin:15px 0; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:13px; padding:12px; }
+    .card strong { display:block; font-size:22px; }
+    .card span { color:var(--muted); font-size:12px; }
+    .balance { margin:0 0 14px; padding:14px 16px; border:1px solid #2f6fb2; border-radius:12px; background:#102a46; line-height:1.5; }
+    .progress { height:7px; background:#1d2a3e; border-radius:8px; margin-bottom:14px; overflow:hidden; }
+    .progress i { display:block; width:0; height:100%; background:linear-gradient(90deg,var(--blue),var(--green)); }
+    .wrap { overflow:auto; border:1px solid var(--line); border-radius:14px; background:var(--card); }
+    table { border-collapse:collapse; width:100%; }
+    th,td { text-align:left; padding:11px; border-bottom:1px solid var(--line); }
+    th { position:sticky; top:0; background:#132238; color:#b8c9df; font-size:12px; }
+    a { color:#85baff; text-decoration:none; }
+    .url { min-width:290px; } .url-note { margin-top:6px; color:#ffd788; font-size:12px; font-weight:650; }
+    .pill { display:inline-block; border-radius:999px; padding:5px 8px; font-size:12px; font-weight:700; }
+    .wait { background:#263750; } .testing { background:#584419; color:#ffe08a; } .ok { background:#10463a; color:#75efc0; } .bad { background:#521f2a; color:#ffa1ad; }
+    .note { margin-top:13px; padding:12px; border:1px solid #41516a; border-radius:11px; background:var(--card); color:#c9d5e5; line-height:1.5; }
+    @media(max-width:700px) {
+      main { padding:12px; }
+      header { align-items:stretch; }
+      header .actions { display:grid; grid-template-columns:1fr 1fr; width:100%; }
+      header .actions button:first-child { grid-column:1 / -1; }
+      button { min-height:46px; font-size:15px; }
+      .cards { grid-template-columns:1fr 1fr; gap:8px; }
+      .card { padding:10px; }
+      .balance { font-size:14px; }
+      .wrap { overflow:visible; border:0; background:transparent; }
+      table, tbody, tr, td { display:block; width:100%; }
+      thead { display:none; }
+      tbody { display:grid; gap:10px; }
+      tr { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:13px; box-shadow:0 3px 12px rgba(0,0,0,.16); }
+      td { border:0; padding:5px 0; min-width:0 !important; }
+      td.url { padding-bottom:10px; border-bottom:1px solid var(--line); overflow-wrap:anywhere; }
+      td.url a { font-size:15px; font-weight:700; }
+      td.status { display:inline-block; width:auto; margin-top:8px; }
+      td.detail { color:#cbd7e8; font-size:13px; padding-top:8px; }
+      td.time, td.at { display:inline-block; width:auto; margin-right:14px; color:var(--muted); font-size:12px; }
+      td.time::before { content:'Tempo: '; font-weight:700; color:#c4d1e2; }
+      td.at::before { content:'Horário: '; font-weight:700; color:#c4d1e2; }
+      .note { font-size:12px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div><h1>Teste HTTPS de URLs</h1><p>Validação pela conexão ativa do aparelho</p></div>
+    <div class="actions"><button id="run">Executar testes</button><button id="share" class="alt">Compartilhar resultado</button><button id="clear" class="alt">Limpar</button></div>
+  </header>
 
-URL;Resposta HTTPS;Detalhe;Tempo;Horário
-`+rs.map(r=>`${r.dataset.h};${r.querySelector('.s').innerText.trim()};${r.querySelector('.e').innerText.trim()};${r.querySelector('.t').innerText.trim()};${r.querySelector('.d').innerText.trim()}`).join('\n')}
-async function copy(x){try{await navigator.clipboard.writeText(x);return true}catch(e){}let q=document.createElement('textarea');q.value=x;q.style.position='fixed';q.style.opacity='0';document.body.appendChild(q);q.select();let z=document.execCommand('copy');q.remove();return z}
-document.querySelector('#share').onclick=async()=>{let x=report();if(navigator.share){try{await navigator.share({title:'Teste HTTPS - Lista Atualizada',text:x});return}catch(e){}}alert(await copy(x)?'Resultado copiado. Cole no WhatsApp.':'Não foi possível compartilhar neste navegador.')};
-document.querySelector('#clear').onclick=()=>{rs.forEach(r=>{r.querySelector('.s').innerHTML='<b class="wait">Aguardando</b>';r.querySelector('.e').textContent='-';r.querySelector('.t').textContent='-';r.querySelector('.d').textContent='-'});upd(0,0,0)};
-</script></main></body></html>
+  <section class="cards">
+    <div class="card"><strong>86</strong><span>Total</span></div>
+    <div class="card"><strong id="okCount">0</strong><span>HTTPS respondeu</span></div>
+    <div class="card"><strong id="failCount">0</strong><span>Falha/timeout</span></div>
+    <div class="card"><strong id="doneCount">0</strong><span>Testados</span></div>
+  </section>
+
+  <div class="balance"><strong>Consultar Saldo:</strong><br>Discar: <strong>*1052#</strong> &rarr; Opção 1. Consumo de Internet</div>
+  <div class="progress"><i id="bar"></i></div>
+
+  <div class="wrap">
+    <table>
+      <thead><tr><th>URL / observação</th><th>Resposta</th><th>Detalhe</th><th>Tempo</th><th>Horário</th></tr></thead>
+      <tbody>
+        <tr data-h="sitequenaoexiste.com.br" data-note="Referência - deve falhar">
+          <td class="url"><a href="https://sitequenaoexiste.com.br" target="_blank" rel="noopener">https://sitequenaoexiste.com.br</a>
+            <div class="url-note">Referência - deve falhar</div></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="dadosabertos.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://dadosabertos.tse.jus.br" target="_blank" rel="noopener">https://dadosabertos.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="divulgacandcontas.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://divulgacandcontas.tse.jus.br" target="_blank" rel="noopener">https://divulgacandcontas.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="30308800.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://30308800.tse.jus.br" target="_blank" rel="noopener">https://30308800.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="pardal-web.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://pardal-web.tse.jus.br" target="_blank" rel="noopener">https://pardal-web.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="educacao.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://educacao.tse.jus.br" target="_blank" rel="noopener">https://educacao.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="cdn.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://cdn.tse.jus.br" target="_blank" rel="noopener">https://cdn.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="form.omni.serpro.gov.br" data-note="-">
+          <td class="url"><a href="https://form.omni.serpro.gov.br" target="_blank" rel="noopener">https://form.omni.serpro.gov.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="resultados.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://resultados.tse.jus.br" target="_blank" rel="noopener">https://resultados.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="sso.acesso.gov.br" data-note="-">
+          <td class="url"><a href="https://sso.acesso.gov.br" target="_blank" rel="noopener">https://sso.acesso.gov.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="treinamento-mesario.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://treinamento-mesario.tse.jus.br" target="_blank" rel="noopener">https://treinamento-mesario.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="consultaunificadapje.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://consultaunificadapje.tse.jus.br" target="_blank" rel="noopener">https://consultaunificadapje.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="justifica.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://justifica.tse.jus.br" target="_blank" rel="noopener">https://justifica.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="cad-app-processo-eleitoral.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://cad-app-processo-eleitoral.tse.jus.br" target="_blank" rel="noopener">https://cad-app-processo-eleitoral.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="cad-app-enderecamento.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://cad-app-enderecamento.tse.jus.br" target="_blank" rel="noopener">https://cad-app-enderecamento.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="qrcodenobu.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://qrcodenobu.tse.jus.br" target="_blank" rel="noopener">https://qrcodenobu.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="checamos.afp.com" data-note="Em manutenção">
+          <td class="url"><a href="https://checamos.afp.com" target="_blank" rel="noopener">https://checamos.afp.com</a>
+            <div class="url-note">Em manutenção</div></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.agencialupa.org" data-note="-">
+          <td class="url"><a href="https://www.agencialupa.org" target="_blank" rel="noopener">https://www.agencialupa.org</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.aosfatos.org" data-note="-">
+          <td class="url"><a href="https://www.aosfatos.org" target="_blank" rel="noopener">https://www.aosfatos.org</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="projetocomprova.com.br" data-note="-">
+          <td class="url"><a href="https://projetocomprova.com.br" target="_blank" rel="noopener">https://projetocomprova.com.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.e-farsas.com" data-note="-">
+          <td class="url"><a href="https://www.e-farsas.com" target="_blank" rel="noopener">https://www.e-farsas.com</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.estadao.com.br/estadao-verifica" data-note="-">
+          <td class="url"><a href="https://www.estadao.com.br/estadao-verifica" target="_blank" rel="noopener">https://www.estadao.com.br/estadao-verifica</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="g1.globo.com/fato-ou-fake" data-note="-">
+          <td class="url"><a href="https://g1.globo.com/fato-ou-fake" target="_blank" rel="noopener">https://g1.globo.com/fato-ou-fake</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="lupa.uol.com.br" data-note="-">
+          <td class="url"><a href="https://lupa.uol.com.br" target="_blank" rel="noopener">https://lupa.uol.com.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="noticias.uol.com.br/comprova" data-note="-">
+          <td class="url"><a href="https://noticias.uol.com.br/comprova" target="_blank" rel="noopener">https://noticias.uol.com.br/comprova</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.boatos.org" data-note="-">
+          <td class="url"><a href="https://www.boatos.org" target="_blank" rel="noopener">https://www.boatos.org</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="noticias.uol.com.br/confere" data-note="-">
+          <td class="url"><a href="https://noticias.uol.com.br/confere" target="_blank" rel="noopener">https://noticias.uol.com.br/confere</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.justicaeleitoral.jus.br/fato-ou-boato" data-note="-">
+          <td class="url"><a href="https://www.justicaeleitoral.jus.br/fato-ou-boato" target="_blank" rel="noopener">https://www.justicaeleitoral.jus.br/fato-ou-boato</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tn3.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://tn3.tse.jus.br" target="_blank" rel="noopener">https://tn3.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tse.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tse.jus.br" target="_blank" rel="noopener">https://www.tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tse.jus.br" data-note="-">
+          <td class="url"><a href="https://tse.jus.br" target="_blank" rel="noopener">https://tse.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.justicaeleitoral.jus.br" data-note="-">
+          <td class="url"><a href="https://www.justicaeleitoral.jus.br" target="_blank" rel="noopener">https://www.justicaeleitoral.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="justicaeleitoral.jus.br" data-note="-">
+          <td class="url"><a href="https://justicaeleitoral.jus.br" target="_blank" rel="noopener">https://justicaeleitoral.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-ac.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-ac.jus.br" target="_blank" rel="noopener">https://www.tre-ac.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-ac.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-ac.jus.br" target="_blank" rel="noopener">https://tre-ac.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-al.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-al.jus.br" target="_blank" rel="noopener">https://www.tre-al.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-al.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-al.jus.br" target="_blank" rel="noopener">https://tre-al.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-am.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-am.jus.br" target="_blank" rel="noopener">https://www.tre-am.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-am.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-am.jus.br" target="_blank" rel="noopener">https://tre-am.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-ap.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-ap.jus.br" target="_blank" rel="noopener">https://www.tre-ap.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-ap.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-ap.jus.br" target="_blank" rel="noopener">https://tre-ap.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-ba.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-ba.jus.br" target="_blank" rel="noopener">https://www.tre-ba.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-ba.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-ba.jus.br" target="_blank" rel="noopener">https://tre-ba.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-ce.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-ce.jus.br" target="_blank" rel="noopener">https://www.tre-ce.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-ce.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-ce.jus.br" target="_blank" rel="noopener">https://tre-ce.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-df.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-df.jus.br" target="_blank" rel="noopener">https://www.tre-df.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-df.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-df.jus.br" target="_blank" rel="noopener">https://tre-df.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-es.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-es.jus.br" target="_blank" rel="noopener">https://www.tre-es.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-es.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-es.jus.br" target="_blank" rel="noopener">https://tre-es.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-go.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-go.jus.br" target="_blank" rel="noopener">https://www.tre-go.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-go.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-go.jus.br" target="_blank" rel="noopener">https://tre-go.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-ma.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-ma.jus.br" target="_blank" rel="noopener">https://www.tre-ma.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-ma.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-ma.jus.br" target="_blank" rel="noopener">https://tre-ma.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-mg.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-mg.jus.br" target="_blank" rel="noopener">https://www.tre-mg.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-mg.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-mg.jus.br" target="_blank" rel="noopener">https://tre-mg.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-ms.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-ms.jus.br" target="_blank" rel="noopener">https://www.tre-ms.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-ms.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-ms.jus.br" target="_blank" rel="noopener">https://tre-ms.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-mt.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-mt.jus.br" target="_blank" rel="noopener">https://www.tre-mt.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-mt.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-mt.jus.br" target="_blank" rel="noopener">https://tre-mt.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-pa.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-pa.jus.br" target="_blank" rel="noopener">https://www.tre-pa.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-pa.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-pa.jus.br" target="_blank" rel="noopener">https://tre-pa.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-pb.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-pb.jus.br" target="_blank" rel="noopener">https://www.tre-pb.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-pb.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-pb.jus.br" target="_blank" rel="noopener">https://tre-pb.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-pe.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-pe.jus.br" target="_blank" rel="noopener">https://www.tre-pe.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-pe.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-pe.jus.br" target="_blank" rel="noopener">https://tre-pe.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-pi.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-pi.jus.br" target="_blank" rel="noopener">https://www.tre-pi.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-pi.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-pi.jus.br" target="_blank" rel="noopener">https://tre-pi.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-pr.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-pr.jus.br" target="_blank" rel="noopener">https://www.tre-pr.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-pr.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-pr.jus.br" target="_blank" rel="noopener">https://tre-pr.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-rj.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-rj.jus.br" target="_blank" rel="noopener">https://www.tre-rj.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-rj.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-rj.jus.br" target="_blank" rel="noopener">https://tre-rj.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-rn.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-rn.jus.br" target="_blank" rel="noopener">https://www.tre-rn.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-rn.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-rn.jus.br" target="_blank" rel="noopener">https://tre-rn.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-ro.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-ro.jus.br" target="_blank" rel="noopener">https://www.tre-ro.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-ro.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-ro.jus.br" target="_blank" rel="noopener">https://tre-ro.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-rr.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-rr.jus.br" target="_blank" rel="noopener">https://www.tre-rr.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-rr.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-rr.jus.br" target="_blank" rel="noopener">https://tre-rr.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-rs.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-rs.jus.br" target="_blank" rel="noopener">https://www.tre-rs.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-sc.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-sc.jus.br" target="_blank" rel="noopener">https://www.tre-sc.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-sc.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-sc.jus.br" target="_blank" rel="noopener">https://tre-sc.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-se.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-se.jus.br" target="_blank" rel="noopener">https://www.tre-se.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-se.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-se.jus.br" target="_blank" rel="noopener">https://tre-se.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-sp.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-sp.jus.br" target="_blank" rel="noopener">https://www.tre-sp.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-sp.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-sp.jus.br" target="_blank" rel="noopener">https://tre-sp.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="www.tre-to.jus.br" data-note="-">
+          <td class="url"><a href="https://www.tre-to.jus.br" target="_blank" rel="noopener">https://www.tre-to.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+        <tr data-h="tre-to.jus.br" data-note="-">
+          <td class="url"><a href="https://tre-to.jus.br" target="_blank" rel="noopener">https://tre-to.jus.br</a></td>
+          <td class="status"><span class="pill wait">Aguardando</span></td>
+          <td class="detail">-</td>
+          <td class="time">-</td>
+          <td class="at">-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note"><strong>Observação:</strong><br>Timeout de 30 segundos. O navegador diferencia timeout de falha genérica. Por regras CORS, não é possível revelar o código HTTP 200/301/403 nem separar com certeza DNS, TLS e bloqueio de rede.</div>
+
+  <script>
+    const rows = [...document.querySelectorAll('tbody tr')];
+    const run = document.querySelector('#run');
+    const okCount = document.querySelector('#okCount');
+    const failCount = document.querySelector('#failCount');
+    const doneCount = document.querySelector('#doneCount');
+    const bar = document.querySelector('#bar');
+
+    function update(ok, fail, done) {
+      okCount.textContent = ok;
+      failCount.textContent = fail;
+      doneCount.textContent = done;
+      bar.style.width = (done / rows.length * 100) + '%';
+    }
+
+    async function probe(row) {
+      const status = row.querySelector('.status');
+      const detail = row.querySelector('.detail');
+      const time = row.querySelector('.time');
+      const at = row.querySelector('.at');
+      const started = performance.now();
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 30000);
+      status.innerHTML = '<span class="pill testing">Testando</span>';
+      detail.textContent = 'Aguardando resposta';
+      try {
+        await fetch('https://' + row.dataset.h + '/?network_test=' + Date.now(), { mode:'no-cors', cache:'no-store', signal:controller.signal });
+        clearTimeout(timer);
+        time.textContent = Math.round(performance.now() - started) + ' ms';
+        at.textContent = new Date().toLocaleTimeString('pt-BR');
+        status.innerHTML = '<span class="pill ok">HTTPS respondeu</span>';
+        detail.textContent = 'Conexão HTTPS concluída';
+        return true;
+      } catch (error) {
+        clearTimeout(timer);
+        time.textContent = Math.round(performance.now() - started) + ' ms';
+        at.textContent = new Date().toLocaleTimeString('pt-BR');
+        status.innerHTML = '<span class="pill bad">Falha</span>';
+        if (error && error.name === 'AbortError') detail.textContent = 'Timeout após 30 s';
+        else if (!navigator.onLine) detail.textContent = 'Dispositivo sem conexão de rede';
+        else detail.textContent = 'Erro de rede, DNS, TLS ou bloqueio do navegador';
+        return false;
+      }
+    }
+
+    run.onclick = async () => {
+      run.disabled = true;
+      let ok = 0, fail = 0, done = 0;
+      update(0,0,0);
+      for (let i=0; i<rows.length; i+=4) {
+        const results = await Promise.all(rows.slice(i,i+4).map(probe));
+        results.forEach(result => result ? ok++ : fail++);
+        done += results.length;
+        update(ok,fail,done);
+      }
+      run.disabled = false;
+    };
+
+    function report() {
+      const header = 'URL;Observação;Resposta HTTPS;Detalhe;Tempo;Horário';
+      const lines = rows.map(row => [row.dataset.h,row.dataset.note,row.querySelector('.status').innerText.trim(),row.querySelector('.detail').innerText.trim(),row.querySelector('.time').innerText.trim(),row.querySelector('.at').innerText.trim()].join(';'));
+      return 'Teste HTTPS - ' + new Date().toLocaleString('pt-BR') + '\nTotal: ' + rows.length + '; HTTPS respondeu: ' + okCount.textContent + '; Falha/timeout: ' + failCount.textContent + '\n\n' + header + '\n' + lines.join('\n');
+    }
+
+    async function copyText(text) {
+      try { await navigator.clipboard.writeText(text); return true; } catch (e) {}
+      const area=document.createElement('textarea'); area.value=text; area.style.position='fixed'; area.style.opacity='0'; document.body.appendChild(area); area.select(); const copied=document.execCommand('copy'); area.remove(); return copied;
+    }
+
+    document.querySelector('#share').onclick = async () => {
+      const text=report();
+      if (navigator.share) { try { await navigator.share({title:'Teste HTTPS - Lista Atualizada',text}); return; } catch (e) {} }
+      alert(await copyText(text) ? 'Resultado copiado. Cole no WhatsApp.' : 'Não foi possível compartilhar neste navegador.');
+    };
+
+    document.querySelector('#clear').onclick = () => {
+      rows.forEach(row => { row.querySelector('.status').innerHTML='<span class="pill wait">Aguardando</span>'; row.querySelector('.detail').textContent='-'; row.querySelector('.time').textContent='-'; row.querySelector('.at').textContent='-'; });
+      update(0,0,0);
+    };
+  </script>
+</main>
+</body>
+</html>
